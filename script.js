@@ -43,8 +43,7 @@ function getCaloriesFromInputs(list) {
   
   
     for (const item of list) {
-        const currVal = item.value;
-        }
+      const currVal = cleanInputString(item.value)
   
     return calories;
   }
