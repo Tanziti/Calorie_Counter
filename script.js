@@ -21,6 +21,23 @@ function isInvalidInput(str) {
 }
 console.log(isInvalidInput("1e3"))
 
+function getCaloriesFromInputs(list) {
+  let calories = 0;
+
+  for (const item of list) {
+    const currVal = cleanInputString(item.value);
+    const invalidInputMatch = isInvalidInput(currVal);
+
+    if (invalidInputMatch) {
+      alert(`Invalid Input: ${invalidInputMatch[0]}`);
+      isError = true
+      return null
+    }
+    calories += Number(currVal)
+  }
+  return calories
+}
+
 function addEntry() {
     const targetInputContainer = document.querySelector(`#${entryDropdown.value} .input-container`);
     const entryNumber = targetInputContainer.querySelectorAll('input[type="text"]').length + 1;
@@ -38,18 +55,10 @@ function addEntry() {
   }
 addEntryButton.addEventListener('click', addEntry);
 
-function getCaloriesFromInputs(list) {
-  let calories = 0;
-
-  for (const item of list) {
-    const currVal = cleanInputString(item.value);
-    const invalidInputMatch = isInvalidInput(currVal);
-
-    if (invalidInputMatch) {
-      alert(`Invalid Input: ${invalidInputMatch[0]}`);
-      isError = true
-      return null
-    }
-    calories += Number(currVal)
-  }
+function calculateCalories(e) {
+  e.preventDefault();
+  isError = false;
+  let breakfastNumberInputs = document.querySelectorAll('#breakfast input[type=number]')
+  const lunchNumberInputs = document.querySelectorAll('#lunch input[type=number]');
 }
+
