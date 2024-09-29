@@ -53,8 +53,6 @@ function addEntry() {
     />`;
     targetInputContainer.insertAdjacentHTML('beforeend', HTMLString);
   }
-addEntryButton.addEventListener('click', addEntry);
-calorieCounter.addEventListener('submit', calculateCalories)
 
 function calculateCalories(e) {
   e.preventDefault();
@@ -87,3 +85,10 @@ function calculateCalories(e) {
   output.classList.remove('hide');
 }
 
+addEntryButton.addEventListener('click', addEntry);
+calorieCounter.addEventListener('submit', calculateCalories)
+
+function clearForm() {
+  const inputContainers = Array.from(document.querySelectorAll('.input-container'));
+ 
+}
