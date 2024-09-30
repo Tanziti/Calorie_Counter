@@ -90,5 +90,11 @@ calorieCounter.addEventListener('submit', calculateCalories)
 
 function clearForm() {
   const inputContainers = Array.from(document.querySelectorAll('.input-container'));
- 
+  for (const container of inputContainers){
+    container.innerHTML = '';  // Use the correct property
+  }
+  budgetNumberInput.value = '';
+  output.innerText = '';
+  output.classList.add('hide');
+  clearButton.addEventListener('click', clearForm);
 }
